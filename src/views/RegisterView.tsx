@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({
+    const [formData, setFormData]:any = useState({
         firstName: "",
         lastName: "",
         identification: "",
@@ -12,11 +12,11 @@ const Register = () => {
         phone: ""
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e:any) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault();
         try {
             console.log("Sending data: ", formData);

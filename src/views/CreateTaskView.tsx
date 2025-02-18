@@ -24,7 +24,7 @@ const TaskView = () => {
   }, []);
 
   // Handle input changes for the new task form
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     const { name, value } = e.target;
     setNewTask((prev) => ({
       ...prev,
@@ -33,7 +33,7 @@ const TaskView = () => {
   };
 
   // Handle checkbox change for the task state
-  const handleCheckboxChange = (e) => {
+  const handleCheckboxChange = (e:any) => {
     setNewTask((prev) => ({
       ...prev,
       state: e.checked,
@@ -83,7 +83,7 @@ const TaskView = () => {
         <p className="text-gray-600">No tasks registered</p>
       ) : (
         <ul className="w-full max-w-lg bg-white p-4 shadow-md rounded-md">
-          {tasks.map((task) => (
+          {tasks.map((task:any) => (
             <li
               key={task.id}
               className="p-3 border-b cursor-pointer hover:bg-blue-50 flex justify-between items-center"

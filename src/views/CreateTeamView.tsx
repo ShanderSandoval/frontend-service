@@ -17,8 +17,8 @@ const TeamView = () => {
     endDate: "",
     state: true,
   });
-  const [teamLeader, setTeamLeader] = useState(null);
-  const [showMembersModal, setShowMembersModal] = useState(false);
+  const [teamLeader, setTeamLeader]:any = useState(null);
+  const [showMembersModal, setShowMembersModal]:any = useState(false);
 
   useEffect(() => {
     fetch("http://184.72.80.225/query/teamService")
@@ -27,7 +27,7 @@ const TeamView = () => {
       .catch((error) => console.error("Error fetching teams:", error));
   }, []);
 
-  const fetchPersons = (teamId) => {
+  const fetchPersons = (teamId:any) => {
     setSelectedTeam(teamId);
     fetch("http://34.195.160.62/query/personService")
       .then((response) => response.json())
@@ -36,7 +36,7 @@ const TeamView = () => {
     setShowModal(true);
   };
 
-  const fetchTeamLeader = (teamId) => {
+  const fetchTeamLeader = (teamId:any) => {
     fetch(`http://184.72.80.225/query/teamService/${teamId}`)
       .then((response) => response.json())
       .then((data) => {
@@ -63,7 +63,7 @@ const TeamView = () => {
       return;
     }
 
-    const payload = {
+    const payload:any = {
       teamElementId: selectedTeam,
       personElementId: teamLeader.id,
     };
@@ -146,7 +146,7 @@ const TeamView = () => {
         <p className="text-gray-600">No teams registered</p>
       ) : (
         <ul className="w-full max-w-lg bg-white p-4 shadow-md rounded-md">
-          {teams.map((team) => (
+          {teams.map((team:any) => (
             <li
               key={team.id}
               className="p-3 border-b cursor-pointer hover:bg-blue-50 flex justify-between items-center"
@@ -221,7 +221,7 @@ const TeamView = () => {
       >
         <div className="p-4 bg-white">
           <ul className="space-y-2">
-            {persons.map((person) => (
+            {persons.map((person:any) => (
               <li
                 key={person.id}
                 className="flex items-center gap-2 p-2 border rounded-md"
@@ -229,9 +229,9 @@ const TeamView = () => {
                 <Checkbox
                   inputId={person.id}
                   onChange={() => {
-                    setSelectedPersons((prev) =>
+                    setSelectedPersons((prev:any) =>
                       prev.includes(person.id)
-                        ? prev.filter((id) => id !== person.id)
+                        ? prev.filter((id:any) => id !== person.id)
                         : [...prev, person.id]
                     );
                   }}
